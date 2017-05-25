@@ -301,7 +301,7 @@ In the future, we might consider various extensions:
 - **The ability to index into fixed-length arrays with a constant
   index.** However, it would be best to couple that with a general
   overhaul of constant evaluation (and probably an extension of
-  borrowck to understand expressions of this form more broadly).b
+  borrowck to understand expressions of this form more broadly).
 - **The ability to deref.**  This was excluded so as not
   to complicate field access in trait objects, but it could be that
   traits with lvalues that require passing through a reference are
@@ -390,7 +390,7 @@ restrict the grammar of call expressions to disallow a fully qualified
 field path on the left-hand-side of `()`. In other words, just as
 calling a closure located at `a.b.c` must be written `(a.b.c)()` (so
 as to avoid ambiguity with calling a method `c` on the path `a.b`), so
-must you wrote `(a.b.<Trait::c>)()`; `a.b.<Trait::c>()` will not
+must you write `(a.b.<Trait::c>)()`; `a.b.<Trait::c>()` will not
 parse.
 
 ### Field access via traits
@@ -409,8 +409,8 @@ both are being accessed from the same path `base`):
 
 - Both fields defined in the same struct: disjoint
 - Field `a` is defined in a trait `A`, field `b` is defined in a trait `B`:
-  disjoint `A` is a supertrait of `B` or vice versa
-  (not that every trait is its own supertrait)
+  disjoint if `A` is a supertrait of `B` or vice versa
+  (note that every trait is its own supertrait)
 - Otherwise: potentially overlapping   
 
 #### Moves are not allowed
@@ -600,12 +600,10 @@ current RFC. Many of these were
 
 - **Upcasting:** it must be possible to upcast a trait object into a
   "super-trait" object. Currently this is not supported.
-  Without this, one cannot pass a `&Container` object to a function that
-  expects a `&GuiNode` object.
 - **Implicit trait coercion:** it must be possible to invoke an
   inherent method defined on trait `Foo` when given an object of some
   type `T: Foo`. Without this, one could not invoke inherent methods
-  defined on the `GuiNode` trait on a `Circle` struct. (This same
+  defined on the `GuiNode` trait on some subtype thereof. (This same
   problem affects e.g. the methods on the `Any` trait object.)
 - **Thin traits:** For maximum efficiency, we should be able to
   declare a trait as a "thin trait". This would impose stricter orphan
@@ -614,10 +612,10 @@ current RFC. Many of these were
   implementing types).
 - **Super fn definitions:** Specialization currently offers no
   equivalent to the notion of a "super fn" definition from OO
-  languages. This means that if, e.g., `Circle` wanted to override the
-  `highlight` method but also call out to the prior version, it can't
-  easily do so. Super calls are not strictly needed thoug, as one can
-  always refactor the super call into a free fn.
+  languages. This means that if, e.g., a specific widget wanted to
+  override some method on a supertrait, but also call out to the prior
+  version, it can't easily do so. Super calls are not strictly needed
+  thoug, as one can always refactor the super call into a free fn.
   
 # Drawbacks
 [drawbacks]: #drawbacks
