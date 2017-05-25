@@ -14,13 +14,13 @@ I've tried to setup a labeling scheme for issues to help people find stuff easil
 
 **Help-wanted.**
 
-The `help wanted` label indicates issues where a PR would be most welcome. 
+The [`help wanted` label](https://github.com/nikomatsakis/fields-in-traits-rfc/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) indicates issues where a PR would be most welcome. 
 
 **Priority (the P labels).**
 
-- `P-essential` means that we have to resolve this for the current RFC. It might be that this is better suited to a milestone. 
-- `P-nice-to-have` means that it might be nice to include this in the RFC, but it might also be better left for follow-up work.
-- `P-wild-and-crazy` means that these are far-out ideas that may or may not make sense.
+- [`P-essential`](https://github.com/nikomatsakis/fields-in-traits-rfc/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20label%3AP-essential%20) means that we have to resolve this for the current RFC. It might be that this is better suited to a milestone. 
+- [`P-nice-to-have`](https://github.com/nikomatsakis/fields-in-traits-rfc/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20label%3AP-nice-to-have%20) means that it might be nice to include this in the RFC, but it might also be better left for follow-up work.
+- [`P-wild-and-crazy`](https://github.com/nikomatsakis/fields-in-traits-rfc/issues?utf8=%E2%9C%93&q=is%3Aopen%20is%3Aissue%20label%3AP-wild-and-crazy%20) means that these are far-out ideas that may or may not make sense.
 
 **Resolution (the Z labels).**
 
